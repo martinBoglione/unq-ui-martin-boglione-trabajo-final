@@ -19,6 +19,7 @@
 ### Instalacion: 
 
 1. Clonar el proyecto usando Git Bash: `git clone https://github.com/martinBoglione/unq-ui-martin-boglione-trabajo-final.git`
-2. Abrir el proyecto con Visual Studio code
+2. Abrir el proyecto con Visual Studio Code
+    - En la terminal ejecutar el comando `npm install` y luego `npm start` para correr el proyecto
 
 
