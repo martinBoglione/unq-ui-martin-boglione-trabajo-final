@@ -14,5 +14,10 @@
 
 - Visual Studio Code
 - Node.js
+- Git Bash
 
 ### Instalacion: 
+
+1. Clonar el proyecto usando Git Bash: > git clone https://github.com/martinBoglione/unq-ui-martin-boglione-trabajo-final.git
+2. Abrir el proyecto con Visual Studio code
+
