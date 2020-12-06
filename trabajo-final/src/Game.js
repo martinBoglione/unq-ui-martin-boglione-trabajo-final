@@ -5,19 +5,24 @@ const Game = () => {
     return (
         <div className="Game">
             <div>
-                <h1>Opciones</h1>
-                <i class="far fa-hand-rock"></i>
-                <i class="far fa-hand-paper"></i>
-                <i class="far fa-hand-scissors"></i>
-                <i class="far fa-hand-spock"></i>
-                <i class="far fa-hand-lizard"></i>
+                <h1><Link to="/Home">Home</Link></h1>
             </div>
             <div>
-                <h1><Link to="/Home">HOME</Link></h1>
+                <p>Player: 0</p>
+                <p>PC: 0</p>
+            </div>
+
+
+            <button className="btn btn-dark"> Restart Game</button>
+            <div>
+                <h1>Elegir movimiento</h1>
+                <i class="fas fa-hand-rock fa-10x"></i>
+                <i class="fas fa-hand-paper fa-10x"></i>
+                <i class="fas fa-hand-scissors fa-10x"></i>
+                <i class="fas fa-hand-spock fa-10x"></i>
+                <i class="fas fa-hand-lizard fa-10x"></i>
             </div>
         </div>
-
-
     )
 }
 

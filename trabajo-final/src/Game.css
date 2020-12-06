@@ -3,5 +3,9 @@
     left: 50%;
     transform: translate(-50%);
     text-align: center;
-  }
+}
+
+i {
+    margin-left: 20px;
+}
   
