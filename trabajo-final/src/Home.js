@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div className="Home">
+
       <div className="margin">
         <h1>Bienvenido a </h1>
         <h2>¡Piedra, Papel, Tijera, Lagarto o Spock!</h2>
       </div>
+
       <div className="margin">
         <h1>Reglas</h1>
         <ul>
@@ -23,9 +25,11 @@ const Home = () => {
           <li>Piedra aplasta a Tijera</li>
         </ul>
       </div>
+
       <div>
         <h1><Link to="/Game">PLAY</Link></h1>
       </div>
+      
     </div>
   );
 }

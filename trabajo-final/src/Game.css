@@ -1,11 +1,42 @@
 .Game {
     position: absolute;
     left: 50%;
-    transform: translate(-50%);
+    top: 10%;
+    transform: translate(-50%, -10%);
     text-align: center;
 }
 
-i {
-    margin-left: 20px;
+.margin-top{
+    margin-top: 30px;
 }
-  
+
+.movimientos {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+    
+}
+
+.fas {
+    cursor: pointer;
+}
+
+.fas:hover {
+    color: hotpink;
+}
+
+.score {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    color: black;
+}
+
+.score p:first-child {
+    background-color: red;
+    color: white;
+}
+
+.score p:last-child {
+    background-color: mediumblue;
+    color: white;
+}
