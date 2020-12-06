@@ -1,0 +1,30 @@
+.Home {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -20%);
+  text-align: center;
+}
+
+.margin {
+  margin-bottom: 50px;
+}
+
+ul li {
+  list-style-type: circle;
+  margin: 10px;
+}
+
+a:link {
+  text-decoration: inherit;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: teal;
+  font-size: 150%;
+}

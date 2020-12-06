@@ -1,12 +1,21 @@
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import React from 'react';
+import Home from './Home';
+import Game from './Game';
 
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-        <h1>HOLA</h1>
-    </div>
-  );
+const App = () => {
+
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/Home" component={Home} />
+                <Route path="/Game" component={Game} />
+                <Route path="*" component={Home} />
+            </Switch>
+        </BrowserRouter>
+    );
+
 }
 
 export default App;
