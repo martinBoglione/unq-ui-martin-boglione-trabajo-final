@@ -16,15 +16,9 @@ ul li {
 }
 
 a:link {
-  text-decoration: inherit;
-}
-
-a:visited {
-  color: inherit;
-  text-decoration: inherit;
+  background-color: gold;
 }
 
 a:hover {
-  color: teal;
   font-size: 150%;
 }

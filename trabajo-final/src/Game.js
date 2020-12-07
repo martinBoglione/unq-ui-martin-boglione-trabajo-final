@@ -1,29 +1,124 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Game.css';
+import Modal from "react-modal";
+
+
+
+
+
 
 const Game = () => {
+
+    const movimientos = ["Piedra", "Papel", "Tijera", "Spock", "Lagarto"];
+
+    const [player, setMovimientoPlayer] = useState("");
+    const [pc, setPc] = useState("");
+    let puntosPlayer = 0;
+    let puntosPC = 0;
+
+    //Modal
+    const [isOpen, setIsOpen] = useState(false);
+
+    function toggleModal() {
+        setIsOpen(!isOpen);
+    }
+
+
+    const startGame = () => {
+        setIsOpen(!isOpen);
+        const movi = movimientos[Math.floor(Math.random() * movimientos.length)];
+        setPc(movi);
+    }
+
+
+    const verGanador = () => {
+        if (player === pc) {
+            return ("Empataste")
+        } else if (
+            (player === "Piedra" && pc === "Tijera") ||
+            (player === "Tijera" && pc === "Papel") ||
+            (player === "Papel" && pc === "Piedra") ||
+            (player === "Piedra" && pc === "Lagarto") ||
+            (player === "Lagarto" && pc === "Spock") ||
+            (player === "Spock" && pc === "Tijera") ||
+            (player === "Tijera" && pc === "Lagarto") ||
+            (player === "Lagarto" && pc === "Papel") ||
+            (player === "Papel" && pc === "Spock") ||
+            (player === "Spock" && pc === "Piedra")
+        ) {
+            return ("Ganaste")
+        } else {
+            return ("Perdiste")
+        }
+
+    }
+
+
+    const elegirPiedra = () => {
+        setMovimientoPlayer("Piedra")
+    }
+
+    const elegirPapel = () => {
+        setMovimientoPlayer("Papel")
+    }
+
+    const elegirTijera = () => {
+        setMovimientoPlayer("Tijera")
+    }
+
+    const elegirSpock = () => {
+        setMovimientoPlayer("Spock")
+    }
+
+    const elegirLagarto = () => {
+        setMovimientoPlayer("Lagarto")
+    }
+
     return (
+
         <div className="Game">
 
             <div className="margin">
-                <h1><Link to="/Home">Home</Link></h1>
+                <h1><Link to="/Home">Inicio</Link></h1>
             </div>
 
             <div className="score">
-                <p>Player: 0</p>
-                <p>PC: 0</p>
+                <p>Jugador: {puntosPlayer}</p>
+                <p>PC: {puntosPC}</p>
             </div>
 
-            <button className="btn btn-dark margin"> Restart Game</button>
+            <button className="btn btn-danger margin"> Reiniciar Juego</button>
 
             <h1>Elegir movimiento</h1>
-            <div className="movimientos margin-top">
-                <i class="fas fa-hand-rock fa-10x"></i>
-                <i class="fas fa-hand-paper fa-10x"></i>
-                <i class="fas fa-hand-scissors fa-10x"></i>
-                <i class="fas fa-hand-spock fa-10x"></i>
-                <i class="fas fa-hand-lizard fa-10x"></i>
+            <div className="movimientos margin-top margin">
+                <i onClick={elegirPiedra} className="fas fa-hand-rock fa-10x"></i>
+                <i onClick={elegirPapel} className="fas fa-hand-paper fa-10x"></i>
+                <i onClick={elegirTijera} className="fas fa-hand-scissors fa-10x"></i>
+                <i onClick={elegirSpock} className="fas fa-hand-spock fa-10x"></i>
+                <i onClick={elegirLagarto} className="fas fa-hand-lizard fa-10x"></i>
             </div>
+
+            <button onClick={startGame} className="btn btn-info"> Jugar</button>
+
+            <Modal
+                isOpen={isOpen}
+                onRequestClose={toggleModal}
+                contentLabel="My dialog"
+                className="mymodal"
+                overlayClassName="myoverlay"
+                closeTimeoutMS={500}
+            >
+                <div className="margin center">
+                    <div>Jugador: {player}</div>
+                    <div>PC: {pc}</div>
+                    <div>Resultado: {player && pc && verGanador()}</div>
+                </div>
+                <div className="text-center">
+                <button className="btn btn-dark" onClick={toggleModal}>Cerrar</button>
+                </div>
+                
+            </Modal>
 
         </div>
     )
