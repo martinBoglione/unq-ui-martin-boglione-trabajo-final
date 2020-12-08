@@ -4,19 +4,15 @@ import './Game.css';
 import Modal from "react-modal";
 
 
-
-
-
-
 const Game = () => {
 
     const movimientos = ["Piedra", "Papel", "Tijera", "Spock", "Lagarto"];
 
     const [player, setMovimientoPlayer] = useState("");
     const [pc, setPc] = useState("");
-    let puntosPlayer = 0;
-    let puntosPC = 0;
-
+    var [puntosPlayer,setPuntosPlayer] = useState(0);
+    var [puntosPC,setPuntosPC] = useState(0);
+    
     //Modal
     const [isOpen, setIsOpen] = useState(false);
 
@@ -25,15 +21,29 @@ const Game = () => {
     }
 
 
+
     const startGame = () => {
         setIsOpen(!isOpen);
         const movi = movimientos[Math.floor(Math.random() * movimientos.length)];
         setPc(movi);
+        sumarPuntos()
     }
 
+    const restartGame = () => {
+        setPuntosPlayer(0);
+        setPuntosPC(0);
+    }
+
+    function sumarPuntos() {
+        if(verGanador() === "Ganaste") {
+            setPuntosPlayer(puntosPlayer + 1)
+        } else if (verGanador() === "Perdiste") {
+            setPuntosPC(puntosPC + 1)
+        }
+    }
 
     const verGanador = () => {
-        if (player === pc) {
+        if (player === pc || (pc.length === 0) || player.length === 0) {
             return ("Empataste")
         } else if (
             (player === "Piedra" && pc === "Tijera") ||
@@ -49,7 +59,7 @@ const Game = () => {
         ) {
             return ("Ganaste")
         } else {
-            return ("Perdiste")
+            return "Perdiste"
         }
 
     }
@@ -79,6 +89,7 @@ const Game = () => {
 
         <div className="Game">
 
+
             <div className="margin">
                 <h1><Link to="/Home">Inicio</Link></h1>
             </div>
@@ -88,7 +99,7 @@ const Game = () => {
                 <p>PC: {puntosPC}</p>
             </div>
 
-            <button className="btn btn-danger margin"> Reiniciar Juego</button>
+            <button onClick={restartGame} className="btn btn-danger margin"> Reiniciar Juego</button>
 
             <h1>Elegir movimiento</h1>
             <div className="movimientos margin-top margin">
@@ -99,7 +110,7 @@ const Game = () => {
                 <i onClick={elegirLagarto} className="fas fa-hand-lizard fa-10x"></i>
             </div>
 
-            <button onClick={startGame} className="btn btn-info"> Jugar</button>
+            <button onClick={startGame} className="btn btn-success btn-lg"> Jugar</button>
 
             <Modal
                 isOpen={isOpen}
@@ -110,14 +121,16 @@ const Game = () => {
                 closeTimeoutMS={500}
             >
                 <div className="margin center">
-                    <div>Jugador: {player}</div>
-                    <div>PC: {pc}</div>
-                    <div>Resultado: {player && pc && verGanador()}</div>
+                    <h3>
+                        <div>Jugador: {player}</div>
+                        <div>PC: {pc}</div>
+                        <div>{verGanador()}</div>
+                    </h3>
                 </div>
                 <div className="text-center">
-                <button className="btn btn-dark" onClick={toggleModal}>Cerrar</button>
+                    <button className="btn btn-dark" onClick={toggleModal}>Cerrar</button>
                 </div>
-                
+
             </Modal>
 
         </div>
