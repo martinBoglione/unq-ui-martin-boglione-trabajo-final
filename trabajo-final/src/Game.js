@@ -10,9 +10,9 @@ const Game = () => {
 
     const [player, setMovimientoPlayer] = useState("");
     const [pc, setPc] = useState("");
-    var [puntosPlayer,setPuntosPlayer] = useState(0);
-    var [puntosPC,setPuntosPC] = useState(0);
-    
+    var [puntosPlayer, setPuntosPlayer] = useState(0);
+    var [puntosPC, setPuntosPC] = useState(0);
+
     //Modal
     const [isOpen, setIsOpen] = useState(false);
 
@@ -35,7 +35,7 @@ const Game = () => {
     }
 
     function sumarPuntos() {
-        if(verGanador() === "Ganaste") {
+        if (verGanador() === "Ganaste") {
             setPuntosPlayer(puntosPlayer + 1)
         } else if (verGanador() === "Perdiste") {
             setPuntosPC(puntosPC + 1)
