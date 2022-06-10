@@ -29,7 +29,7 @@ const Home = () => {
         <div>
           <h1>Como jugar</h1>
             <h5>
-              Elegir un movimiento y luego presionar "Jugar".<p></p>
+              Elegir un movimiento y luego presionar "Jugar"<p></p>
               En caso de no elegir un movimiento antes de presionar "Jugar" el resultado será empate<p></p>
               Presionar "Reinciar Juego" para que el resultado vuelva a 0 
             </h5>
